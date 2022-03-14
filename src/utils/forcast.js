@@ -9,7 +9,8 @@ const forcast = (lat, lon, callback) => {
         } else if (body.cod==='400') {
            callback('Unable to find locaiton, Please try with another search',undefined);
         }else {
-           callback(undefined,'it is currently ' + (body.main.temp) + ' degree F out there\n'+'the feel like (apparent temperature) is ' + (body.main.feels_like) + ' degree F\n'+'the forcast = ' + body.weather[0].description);
+           console.log(body.main);
+           callback(undefined,'it is currently ' + (body.main.temp) + ' degree F. '+'apparent temperature is ' + (body.main.feels_like) + ' degree F. '+'The forcast = ' + body.weather[0].description+'. Humidity = '+(body.main.humidity));
         }
     })
 }
